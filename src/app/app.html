@@ -1,344 +1,1161 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: block;
-    height: 100dvh;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+<!-- Modern Minimal Notification Banner -->
+<aside class="top-bar-notice" aria-label="Demonstration Notice">
+  <div class="container top-bar-inner">
+    <div class="top-bar-left">
+      <span class="badge">DEMO MARKETPLACE</span>
+      <span class="notice-text">Demonstration inventory only. Orders route directly to workshop WhatsApp.</span>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+    <div class="top-bar-right">
+      <span class="support-line">Workshop Support: +{{ whatsappSellerNumber }}</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ========================================================================
+     1. MODERN MINIMAL NAVIGATION BAR
+     ======================================================================== -->
+<header class="site-header">
+  <div class="container nav-container">
+    <!-- Brand Logo -->
+    <a href="#hero-section" class="logo" (click)="closeMobileMenu()">
+      <div class="logo-mark">RM</div>
+      <div class="logo-text">
+        <span class="logo-main">RETROMOTO<span>PARTS</span></span>
+        <span class="logo-tagline">Curated Motorcycle Archives</span>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="nav-links" [class.mobile-open]="isMobileMenuOpen" aria-label="Main Navigation">
+      <a href="#hero-section" (click)="closeMobileMenu()" class="nav-link">Home</a>
+      <a href="#shop-section" (click)="closeMobileMenu()" class="nav-link">Catalogue</a>
+      <a href="#categories-section" (click)="closeMobileMenu()" class="nav-link">Categories</a>
+      <a href="#why-us-section" (click)="closeMobileMenu()" class="nav-link">Standard</a>
+      <a href="#contact-section" (click)="closeMobileMenu()" class="nav-link">Sourcing Desk</a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <!-- Seller / Admin Trigger -->
+      <button type="button" 
+              class="btn-seller-portal" 
+              (click)="openSellerPortal()" 
+              title="Seller Inventory Dashboard">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span>Inventory Hub</span>
+      </button>
+
+      <!-- Cart Trigger Button -->
+      <button type="button" 
+              class="btn-icon-cart" 
+              (click)="toggleCart()" 
+              aria-label="Open Shopping Bag">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        <span class="cart-label">Bag</span>
+        <span class="cart-count-pill">{{ getCartCount() }}</span>
+      </button>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button type="button" 
+              class="mobile-nav-toggle" 
+              (click)="toggleMobileMenu()" 
+              aria-label="Toggle Navigation Menu">
+        @if (!isMobileMenuOpen) {
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        } @else {
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        }
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ========================================================================
+     2. HERO SECTION - CLEAN, EDITORIAL & MODERN
+     ======================================================================== -->
+<section class="hero-section" id="hero-section">
+  <div class="container hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="status-dot"></span>
+        Authentic Spares &amp; Restoration Archive
+      </div>
+      <h1 class="hero-title">
+        Old parts.<br>
+        <span class="accent-text">New rides.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Curated marketplace for verified used, refurbished, and salvage motorcycle spares in India. Bench-tested carburetors, original frames, electrical units, and accessories for vintage classics.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#shop-section" class="btn-primary" (click)="scrollToCatalogue()">
+          <span>Browse Catalogue</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
         </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+        <button type="button" class="btn-secondary" (click)="openSellerPortal()">
+          List Your Parts
+        </button>
+      </div>
+
+      <!-- Trust Metrics Bar -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Bench Tested</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">6+</span>
+          <span class="stat-label">Iconic Makes</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">₹0</span>
+          <span class="stat-label">Listing Fees</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Fast Fitment Search Panel -->
+    <div class="hero-search-card">
+      <div class="search-card-header">
+        <div class="search-card-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div>
+          <h3>Quick Fitment Finder</h3>
+          <p>Filter by make, category, or component keyword</p>
+        </div>
+      </div>
+
+      <form class="quick-search-form" (ngSubmit)="scrollToCatalogue()">
+        <div class="form-group-hero">
+          <label for="hero-search-input">Search Term or SKU</label>
+          <input type="text" 
+                 id="hero-search-input" 
+                 name="heroSearch" 
+                 [(ngModel)]="filters.searchQuery" 
+                 placeholder="e.g. Mikuni, Silencer, CDI, Tank...">
+        </div>
+
+        <div class="hero-filter-row">
+          <div class="form-group-hero">
+            <label for="hero-brand-select">Motorcycle Make</label>
+            <select id="hero-brand-select" name="heroBrand" [(ngModel)]="filters.brand">
+              <option value="">All Makes</option>
+              @for (brand of availableBrands; track brand) {
+                <option [value]="brand">{{ brand }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="form-group-hero">
+            <label for="hero-category-select">Category</label>
+            <select id="hero-category-select" name="heroCategory" [(ngModel)]="filters.category">
+              <option value="">All Categories</option>
+              @for (cat of categories; track cat.name) {
+                <option [value]="cat.name">{{ cat.name }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-hero-search">
+          <span>Search Available Inventory</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     3. CATEGORIES SECTION - SLEEK MINIMAL PILL TILES
+     ======================================================================== -->
+<section class="categories-section" id="categories-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Component Groups</span>
+      <h2 class="section-title">Shop by Category</h2>
+      <p class="section-subtitle">Select an automotive subsystem to filter genuine salvaged and restored components.</p>
+    </div>
+
+    <div class="category-grid">
+      @for (cat of categories; track cat.name) {
+        <button type="button" 
+                class="category-card" 
+                [class.active]="filters.category === cat.name"
+                (click)="selectCategory(cat.name)">
+          <div class="category-icon">
+            @if (cat.iconKey === 'engine') {
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h-4v3h4V4z"/><rect x="4" y="7" width="16" height="13" rx="2"/><circle cx="12" cy="13" r="3"/><path d="M8 7v3"/><path d="M16 7v3"/><path d="M2 11h2"/><path d="M20 11h2"/></svg>
+            }
+            @if (cat.iconKey === 'electrical') {
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            }
+            @if (cat.iconKey === 'brakes') {
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><line x1="12" y1="3" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            }
+            @if (cat.iconKey === 'body') {
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            }
+            @if (cat.iconKey === 'suspension') {
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M7 6h10"/><path d="M9 10l6 4"/><path d="M15 10l-6 4"/><path d="M7 18h10"/><path d="M12 18v4"/></svg>
+            }
+            @if (cat.iconKey === 'wheels') {
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="2" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="22" y2="12"/></svg>
+            }
+            @if (cat.iconKey === 'exhausts') {
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><path d="M6 14v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-4"/><line x1="9" y1="14" x2="9" y2="20"/><line x1="15" y1="14" x2="15" y2="20"/></svg>
+            }
+            @if (cat.iconKey === 'accessories') {
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            }
+          </div>
+          <div class="category-info">
+            <span class="category-name">{{ cat.name }}</span>
+            <span class="category-count">{{ getCategoryCount(cat.name) }} available</span>
+          </div>
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     4. MAIN PRODUCT CATALOGUE & FILTER SECTION
+     ======================================================================== -->
+<section class="catalogue-section" id="shop-section">
+  <div class="container">
+    <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+      <span class="section-eyebrow">Available Inventory</span>
+      <h2 class="section-title">Verified Spare Parts</h2>
+      <p class="section-subtitle">Bench-tested vintage, refurbished, and salvage motorcycle parts ready for dispatch.</p>
+    </div>
+
+    <div class="catalogue-layout">
+      <!-- Sidebar Filters -->
+      <aside class="filters-sidebar" aria-label="Catalog Filters">
+        <div class="filters-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            Filter Inventory
+          </h3>
+          @if (hasActiveFilters()) {
+            <button type="button" class="btn-reset-filters" (click)="resetFilters()">
+              Clear All
+            </button>
+          }
+        </div>
+
+        <!-- Brand Filter -->
+        <div class="filter-group">
+          <label class="filter-label" for="filter-brand">Motorcycle Brand</label>
+          <select id="filter-brand" class="filter-input" [(ngModel)]="filters.brand">
+            <option value="">All Brands (Any Make)</option>
+            @for (brand of availableBrands; track brand) {
+              <option [value]="brand">{{ brand }}</option>
+            }
+          </select>
+        </div>
+
+        <!-- Condition Filter Pills -->
+        <div class="filter-group">
+          <label class="filter-label">Part Condition</label>
+          <div class="filter-pills">
+            <button type="button" 
+                    class="pill-option" 
+                    [class.active]="filters.condition === ''"
+                    (click)="selectCondition('')">
+              All
+            </button>
+            @for (cond of availableConditions; track cond) {
+              <button type="button" 
+                      class="pill-option" 
+                      [class.active]="filters.condition === cond"
+                      (click)="selectCondition(cond)">
+                {{ cond }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <!-- Max Price Filter Slider -->
+        <div class="filter-group">
+          <div class="price-header">
+            <label class="filter-label" for="filter-price-slider">Price Ceiling</label>
+            <span class="price-val">₹{{ filters.maxPrice | number:'1.0-0' }}</span>
+          </div>
+          <div class="price-range-wrapper">
+            <input type="range" 
+                   id="filter-price-slider"
+                   class="price-range-slider" 
+                   min="500" 
+                   max="6000" 
+                   step="100" 
+                   [(ngModel)]="filters.maxPrice">
+            <div class="price-range-labels">
+              <span>₹500</span>
+              <span>₹3,000</span>
+              <span>₹6,000</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Category Highlight -->
+        @if (filters.category) {
+          <div class="filter-group">
+            <label class="filter-label">Active Category</label>
+            <div class="filter-chip">
+              <span>{{ filters.category }}</span>
+              <button type="button" (click)="selectCategory('')" title="Clear category filter">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+          </div>
+        }
+
+        <div class="sidebar-help-card">
+          <div class="help-card-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </div>
+          <div class="help-card-text">
+            <strong>Custom Sourcing:</strong> Can't locate a specific part? Send our specialists a message via WhatsApp.
+          </div>
+        </div>
+      </aside>
+
+      <!-- Catalogue Main Content -->
+      <main class="catalogue-main">
+        <!-- Toolbar -->
+        <div class="catalogue-toolbar">
+          <div class="toolbar-search">
+            <span class="search-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input type="text" 
+                   [(ngModel)]="filters.searchQuery" 
+                   placeholder="Search parts by name, model, carburetor, CDI, tank...">
+          </div>
+
+          <div class="toolbar-controls">
+            <span class="results-count">
+              <strong>{{ filteredProducts.length }}</strong> of {{ products.length }} parts
+            </span>
+
+            <div class="sort-select-wrapper">
+              <label for="sort-select-box">Sort:</label>
+              <select id="sort-select-box" class="sort-select" [(ngModel)]="sortBy">
+                <option value="newest">Latest Added</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name">Product Name (A-Z)</option>
+              </select>
+            </div>
+
+            <!-- View Mode Switcher -->
+            <div class="view-mode-toggle" role="group" aria-label="Layout view switcher">
+              <button type="button" 
+                      class="btn-view-toggle" 
+                      [class.active]="viewMode === 'grid'" 
+                      (click)="viewMode = 'grid'" 
+                      title="Card Grid View">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              </button>
+              <button type="button" 
+                      class="btn-view-toggle" 
+                      [class.active]="viewMode === 'table'" 
+                      (click)="viewMode = 'table'" 
+                      title="Technical Table View">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Filter Badges -->
+        @if (hasActiveFilters()) {
+          <div class="active-filter-chips">
+            <span class="active-filters-label">Active:</span>
+            @if (filters.searchQuery) {
+              <span class="filter-chip">
+                Query: "{{ filters.searchQuery }}"
+                <button type="button" (click)="filters.searchQuery = ''">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </span>
+            }
+            @if (filters.category) {
+              <span class="filter-chip">
+                Category: {{ filters.category }}
+                <button type="button" (click)="filters.category = ''">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </span>
+            }
+            @if (filters.brand) {
+              <span class="filter-chip">
+                Brand: {{ filters.brand }}
+                <button type="button" (click)="filters.brand = ''">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </span>
+            }
+            @if (filters.condition) {
+              <span class="filter-chip">
+                Condition: {{ filters.condition }}
+                <button type="button" (click)="filters.condition = ''">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </span>
+            }
+            @if (filters.maxPrice < 6000) {
+              <span class="filter-chip">
+                Under ₹{{ filters.maxPrice }}
+                <button type="button" (click)="filters.maxPrice = 6000">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </span>
+            }
+            <button type="button" class="btn-reset-filters" (click)="resetFilters()" style="margin-left: 6px;">
+              Reset All
+            </button>
+          </div>
+        }
+
+        <!-- Product Grid View -->
+        @if (viewMode === 'grid') {
+          <div class="products-grid">
+            @for (product of filteredProducts; track product.id) {
+              <div class="product-card">
+                <!-- Image Container with Fallback Handling -->
+                <div class="product-image-container">
+                  <img [src]="product.image" 
+                       (error)="handleImageError($event, product.category)" 
+                       [alt]="product.name" 
+                       loading="lazy"
+                       class="product-image">
+
+                  <!-- Condition Badge -->
+                  <span class="product-condition-badge" 
+                        [class.condition-like-new]="product.condition === 'Like New'"
+                        [class.condition-good]="product.condition === 'Good'"
+                        [class.condition-fair]="product.condition === 'Fair'"
+                        [class.condition-repair]="product.condition === 'For Repair'">
+                    {{ product.condition }}
+                  </span>
+
+                  <!-- Stock Status -->
+                  <span class="product-stock-tag" 
+                        [class.stock-tag-out]="product.stock <= 0"
+                        [class.stock-tag-low]="product.stock > 0 && product.stock <= 2"
+                        [class.stock-tag-in]="product.stock > 2">
+                    {{ product.stock > 0 ? (product.stock <= 2 ? 'Only ' + product.stock + ' Left' : 'In Stock') : 'Sold Out' }}
+                  </span>
+                </div>
+
+                <!-- Product Details Body -->
+                <div class="product-card-body">
+                  <div class="product-meta-header">
+                    <span class="product-compatibility">{{ product.brand }} · {{ product.model }}</span>
+                    <span class="product-category-text">{{ product.category }}</span>
+                  </div>
+
+                  <h3 class="product-title" [title]="product.name">{{ product.name }}</h3>
+                  <p class="product-snippet">{{ product.description }}</p>
+
+                  <div class="product-spec-row">
+                    <span class="spec-cell">Year: <strong>{{ product.yearRange || 'Universal' }}</strong></span>
+                    <span class="spec-cell">SKU: <strong>{{ product.id }}</strong></span>
+                  </div>
+
+                  <!-- Footer with Price and Actions -->
+                  <div class="product-card-footer">
+                    <div class="product-price-box">
+                      <span class="price-currency">₹{{ product.price | number:'1.0-0' }}</span>
+                      <span class="price-note">Demo Price</span>
+                    </div>
+
+                    <div class="card-action-buttons">
+                      <button type="button" 
+                              class="btn-details" 
+                              (click)="openProductDetails(product)"
+                              title="View full part specifications">
+                        Inspect
+                      </button>
+                      <button type="button" 
+                              class="btn-add-cart" 
+                              (click)="addToCart(product, 1)"
+                              [disabled]="product.stock <= 0">
+                        {{ product.stock > 0 ? '+ Bag' : 'Sold Out' }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        }
+
+        <!-- Technical Table View (Automotive Spec Sheet) -->
+        @if (viewMode === 'table') {
+          <div class="inventory-table-view">
+            <table class="inventory-table">
+              <thead>
+                <tr>
+                  <th style="width: 56px;">Photo</th>
+                  <th>Part Specification &amp; SKU</th>
+                  <th>Category</th>
+                  <th>Fitment Compatibility</th>
+                  <th>Condition</th>
+                  <th>Stock</th>
+                  <th style="text-align: right;">Price (INR)</th>
+                  <th style="text-align: center; width: 140px;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (product of filteredProducts; track product.id) {
+                  <tr>
+                    <td>
+                      <img [src]="product.image" 
+                           (error)="handleImageError($event, product.category)" 
+                           [alt]="product.name" 
+                           class="inventory-table-thumb">
+                    </td>
+                    <td>
+                      <div class="tbl-part-name">{{ product.name }}</div>
+                      <div class="tbl-sku">SKU: {{ product.id }}</div>
+                    </td>
+                    <td>
+                      <span class="tbl-cat-badge">{{ product.category }}</span>
+                    </td>
+                    <td>
+                      <div class="tbl-compat-brand">{{ product.brand }} {{ product.model }}</div>
+                      <div class="tbl-compat-year">{{ product.yearRange || 'Universal' }}</div>
+                    </td>
+                    <td>
+                      <span class="product-condition-badge static-badge" 
+                            [class.condition-like-new]="product.condition === 'Like New'"
+                            [class.condition-good]="product.condition === 'Good'"
+                            [class.condition-fair]="product.condition === 'Fair'"
+                            [class.condition-repair]="product.condition === 'For Repair'">
+                        {{ product.condition }}
+                      </span>
+                    </td>
+                    <td>
+                      <span class="tbl-stock-status" 
+                            [style.color]="product.stock > 0 ? (product.stock <= 2 ? '#b45309' : '#15803d') : '#b91c1c'">
+                        {{ product.stock > 0 ? (product.stock <= 2 ? product.stock + ' Left' : product.stock + ' in Stock') : 'Sold Out' }}
+                      </span>
+                    </td>
+                    <td style="text-align: right;">
+                      <div class="tbl-price">₹{{ product.price | number:'1.0-0' }}</div>
+                    </td>
+                    <td style="text-align: center;">
+                      <div class="tbl-action-group">
+                        <button type="button" 
+                                class="btn-details tbl-btn" 
+                                (click)="openProductDetails(product)"
+                                title="Inspect part details">
+                          Inspect
+                        </button>
+                        <button type="button" 
+                                class="btn-add-cart tbl-btn" 
+                                (click)="addToCart(product, 1)"
+                                [disabled]="product.stock <= 0">
+                          + Bag
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        }
+
+        <!-- Empty State when filters yield no items -->
+        @if (filteredProducts.length === 0) {
+          <div class="empty-state">
+            <div class="empty-state-icon">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            </div>
+            <h3>No Matching Spare Parts Found</h3>
+            <p>We couldn't find any motorcycle parts matching your current filters. Try relaxing keywords, selecting all brands, or clearing price boundaries.</p>
+            <button type="button" class="btn-clear-filters" (click)="resetFilters()">Clear All Filters</button>
+          </div>
+        }
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     5. QUALITY & RESTORATION STANDARDS SECTION (MINIMAL DIVIDER STYLE)
+     ======================================================================== -->
+<section class="value-props-section" id="why-us-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Operating Standard</span>
+      <h2 class="section-title">Built by Riders, for Restorers</h2>
+      <p class="section-subtitle">Bridging the gap between elusive salvage yards and dependable street performance across India.</p>
+    </div>
+
+    <div class="value-grid">
+      <div class="value-cell">
+        <div class="value-index">01</div>
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h4>Workshop Tested &amp; Ultrasonic Cleaned</h4>
+        <p>Every mechanical spare undergoes bench pressure testing, thorough cleaning, and seal inspections prior to listing.</p>
+      </div>
+
+      <div class="value-cell">
+        <div class="value-index">02</div>
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>Exact Fitment Verification</h4>
+        <p>Specific motorcycle model and production year ranges are catalogued so restorers receive bolt-on compatible spares.</p>
+      </div>
+
+      <div class="value-cell">
+        <div class="value-index">03</div>
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h4>Direct WhatsApp Workshop Desk</h4>
+        <p>Converse directly with the technicians. Request caliper measurements, high-res photos, or bench-test videos.</p>
+      </div>
+
+      <div class="value-cell">
+        <div class="value-index">04</div>
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </div>
+        <h4>Circular Two-Wheeler Heritage</h4>
+        <p>Extending component lifecycle reduces metal waste and keeps iconic two-stroke and vintage four-stroke legends roaring.</p>
       </div>
     </div>
   </div>
-</main>
+</section>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- ========================================================================
+     6. SOURCING DESK / CONTACT
+     ======================================================================== -->
+<section class="contact-section" id="contact-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Direct Inquiries</span>
+      <h2 class="section-title">Motorcycle Sourcing Desk</h2>
+      <p class="section-subtitle">Searching for an elusive cylinder block, chrome tank, or magneto flywheel? Submit an inquiry.</p>
+    </div>
 
+    <div class="contact-grid">
+      <div class="contact-info-card">
+        <h4>Workshop Coordinates</h4>
+        <p>Partnering with certified master restorers and vintage collectors across India.</p>
 
-<router-outlet />
+        <div class="contact-item-row">
+          <div class="contact-icon-bubble">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <strong>Warehouse &amp; Testing Facility</strong><br>
+            Mayapuri Automotive Hub, Phase II, New Delhi 110064
+          </div>
+        </div>
+
+        <div class="contact-item-row">
+          <div class="contact-icon-bubble">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <strong>WhatsApp Hotline</strong><br>
+            +{{ whatsappSellerNumber }} (Mon - Sat, 9:00 - 19:00 IST)
+          </div>
+        </div>
+
+        <div class="contact-item-row">
+          <div class="contact-icon-bubble">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <strong>Dispatch &amp; Support Mail</strong><br>
+            desk&#64;retromotoparts.demo
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+        <h4>Request a Rare Component</h4>
+        <form (ngSubmit)="showToast('Sourcing request received. Our team will ping you on WhatsApp.', 'success')">
+          <div class="form-field">
+            <label for="contact-name">Your Name</label>
+            <input type="text" id="contact-name" name="contactName" placeholder="e.g. Rohan Sharma" required>
+          </div>
+          <div class="form-field">
+            <label for="contact-phone">WhatsApp Number</label>
+            <input type="tel" id="contact-phone" name="contactPhone" placeholder="9876543210" required>
+          </div>
+          <div class="form-field">
+            <label for="contact-part">Motorcycle Make &amp; Required Part</label>
+            <textarea id="contact-part" name="contactPart" rows="3" placeholder="e.g. Yamaha RX100 original silencer &amp; standard piston..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%;">
+            <span>Send Request</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     7. FOOTER
+     ======================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo">
+          <div class="logo-mark">RM</div>
+          <div class="logo-text">
+            <span class="logo-main">RETROMOTO<span>PARTS</span></span>
+            <span class="logo-tagline">Curated Motorcycle Archives</span>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Minimalist, high-reliability platform dedicated to authentic vintage, refurbished, and salvage motorcycle spares in India.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul class="footer-links">
+          <li><a href="#hero-section">Home</a></li>
+          <li><a href="#shop-section">Shop Spare Parts</a></li>
+          <li><a href="#categories-section">Categories</a></li>
+          <li><a href="#why-us-section">Quality Standards</a></li>
+          <li><a href="javascript:void(0)" (click)="openSellerPortal()">Inventory Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Supported Makes</h5>
+        <ul class="footer-links">
+          @for (brand of availableBrands; track brand) {
+            <li><a href="#shop-section" (click)="selectBrand(brand); scrollToCatalogue()">{{ brand }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Demo Disclaimer</h5>
+        <p class="footer-disclaimer-text">
+          Frontend demonstration project. WhatsApp checkout generates formatted stock inquiries for personal order verification without simulated payments.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        &copy; 2026 RetroMoto Parts. Built with modern Angular &amp; clean design standards.
+      </div>
+      <div class="demo-disclaimer-pill">
+        Demo Prototype · Frontend Only
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========================================================================
+     8. PRODUCT DETAILS MODAL (INSPECT VIEW)
+     ======================================================================== -->
+@if (isDetailModalOpen && selectedProduct) {
+  <div class="modal-overlay" (click)="closeProductDetails()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button type="button" class="modal-close-btn" (click)="closeProductDetails()" aria-label="Close Modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <div class="product-modal-grid">
+        <!-- Image with fallback -->
+        <div class="modal-image-col">
+          <img [src]="selectedProduct.image" 
+               (error)="handleImageError($event, selectedProduct.category)" 
+               [alt]="selectedProduct.name">
+        </div>
+
+        <!-- Information Column -->
+        <div class="modal-info-col">
+          <div class="modal-header-meta">
+            <span class="modal-category">{{ selectedProduct.category }}</span>
+            <span class="product-condition-badge" 
+                  [class.condition-like-new]="selectedProduct.condition === 'Like New'"
+                  [class.condition-good]="selectedProduct.condition === 'Good'"
+                  [class.condition-fair]="selectedProduct.condition === 'Fair'"
+                  [class.condition-repair]="selectedProduct.condition === 'For Repair'">
+              {{ selectedProduct.condition }}
+            </span>
+          </div>
+
+          <h2 class="modal-title">{{ selectedProduct.name }}</h2>
+
+          <div class="modal-price-strip">
+            <span class="modal-price">₹{{ selectedProduct.price | number:'1.0-0' }}</span>
+            <span class="modal-price-tag">Demo Listing Price</span>
+          </div>
+
+          <div class="modal-attributes">
+            <div class="attr-item">
+              <span class="attr-label">Manufacturer</span>
+              <span class="attr-val">{{ selectedProduct.brand }}</span>
+            </div>
+            <div class="attr-item">
+              <span class="attr-label">Model Fitment</span>
+              <span class="attr-val">{{ selectedProduct.model }}</span>
+            </div>
+            <div class="attr-item">
+              <span class="attr-label">Year Range</span>
+              <span class="attr-val">{{ selectedProduct.yearRange || 'Universal' }}</span>
+            </div>
+            <div class="attr-item">
+              <span class="attr-label">Inventory</span>
+              <span class="attr-val">{{ selectedProduct.stock }} unit(s)</span>
+            </div>
+          </div>
+
+          <div class="modal-desc-box">
+            <h5>Technical Notes &amp; Wear Profile</h5>
+            <p>{{ selectedProduct.description }}</p>
+          </div>
+
+          <div class="modal-seller-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Workshop: <strong>{{ selectedProduct.seller }}</strong> (SKU: {{ selectedProduct.id }})</span>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" 
+                    class="modal-btn-add" 
+                    (click)="addToCart(selectedProduct, 1); closeProductDetails()"
+                    [disabled]="selectedProduct.stock <= 0">
+              {{ selectedProduct.stock > 0 ? 'Add to Bag (₹' + (selectedProduct.price | number:'1.0-0') + ')' : 'Currently Sold Out' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+<!-- ========================================================================
+     9. CART DRAWER & BACKDROP
+     ======================================================================== -->
+<div class="cart-backdrop" [class.open]="isCartOpen" (click)="closeCart()"></div>
+<aside class="cart-drawer" [class.open]="isCartOpen" aria-label="Shopping Bag">
+  <div class="cart-header">
+    <h3>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+      Shopping Bag ({{ getCartCount() }})
+    </h3>
+    <button type="button" class="modal-close-btn static-close" (click)="closeCart()" aria-label="Close Bag">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <!-- Empty Cart View -->
+  @if (cart.length === 0) {
+    <div class="cart-empty-view">
+      <div class="empty-icon-wrap">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+      </div>
+      <h4>Your Bag is Empty</h4>
+      <p>Browse our catalog to add vintage components and request direct WhatsApp fulfillment.</p>
+      <button type="button" class="btn-primary" (click)="closeCart(); scrollToCatalogue()">
+        Explore Catalogue
+      </button>
+    </div>
+  }
+
+  <!-- Populated Cart Items List -->
+  @if (cart.length > 0) {
+    <div class="cart-items-container">
+      @for (item of cart; track item.product.id) {
+        <div class="cart-item">
+          <img [src]="item.product.image" 
+               (error)="handleImageError($event, item.product.category)" 
+               [alt]="item.product.name" 
+               class="cart-item-img">
+
+          <div class="cart-item-details">
+            <h4>{{ item.product.name }}</h4>
+            <div class="cart-item-compat">{{ item.product.brand }} · {{ item.product.model }}</div>
+            <div class="cart-item-price">₹{{ item.product.price | number:'1.0-0' }}</div>
+
+            <div class="cart-item-qty-controls">
+              <button type="button" class="btn-qty" (click)="updateCartQuantity(item, -1)" title="Decrease">-</button>
+              <span class="qty-val">{{ item.quantity }}</span>
+              <button type="button" class="btn-qty" (click)="updateCartQuantity(item, 1)" title="Increase">+</button>
+              <span class="stock-max-hint">(Max {{ item.product.stock }})</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn-remove-item" (click)="removeFromCart(item)" title="Remove item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          </button>
+        </div>
+      }
+
+      <div class="cart-clear-row">
+        <button type="button" class="btn-reset-filters" (click)="clearCart()">Clear Bag</button>
+      </div>
+    </div>
+
+    <!-- Cart Footer with WhatsApp Checkout -->
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span>Items Subtotal:</span>
+        <span class="summary-val">₹{{ getCartSubtotal() | number:'1.0-0' }}</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Crating &amp; Shipping:</span>
+        <span class="summary-ship">Calculated via WhatsApp</span>
+      </div>
+      <div class="cart-summary-row cart-summary-total">
+        <span>Estimated Value:</span>
+        <span class="summary-total-val">₹{{ getCartSubtotal() | number:'1.0-0' }}</span>
+      </div>
+
+      <button type="button" 
+              class="whatsapp-checkout-btn" 
+              (click)="proceedToWhatsAppCheckout()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span>Send Enquiry on WhatsApp</span>
+      </button>
+
+      <p class="whatsapp-disclaimer">
+        Submitting an inquiry does not charge your card. The workshop team confirms fitment and logistics prior to payment.
+      </p>
+    </div>
+  }
+</aside>
+
+<!-- ========================================================================
+     10. SELLER / ADMIN PORTAL MODAL (DEMO)
+     ======================================================================== -->
+@if (isSellerModalOpen) {
+  <div class="modal-overlay" (click)="closeSellerPortal()">
+    <div class="modal-content seller-modal" (click)="$event.stopPropagation()">
+      <div class="seller-header">
+        <div class="seller-header-bar">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            Inventory Management Portal
+          </h3>
+          <button type="button" class="modal-close-btn static-close" (click)="closeSellerPortal()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Security / Demo Notice Banner -->
+      <div class="seller-warning-banner">
+        <strong>Client-Side Demo:</strong> Changes persist in local browser storage. In production, this interfaces with authenticated REST APIs and SQL inventory.
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="seller-tabs">
+        <button type="button" 
+                class="seller-tab-btn" 
+                [class.active]="sellerTab === 'list'" 
+                (click)="setSellerTab('list')">
+          Inventory Items ({{ products.length }})
+        </button>
+        <button type="button" 
+                class="seller-tab-btn" 
+                [class.active]="sellerTab === 'form'" 
+                (click)="setSellerTab('form')">
+          {{ isEditingProduct ? 'Edit Spare Part' : 'Add New Spare Part' }}
+        </button>
+      </div>
+
+      <div class="seller-body">
+        <!-- TAB 1: Product List View -->
+        @if (sellerTab === 'list') {
+          <div>
+            <div class="seller-action-bar">
+              <p>Manage parts currently available in local catalog storage.</p>
+              <button type="button" class="btn-primary btn-sm" (click)="resetProductForm(); setSellerTab('form')">
+                + Add Part
+              </button>
+            </div>
+
+            <div class="seller-table-container">
+              <table class="seller-table">
+                <thead>
+                  <tr>
+                    <th>Thumb</th>
+                    <th>ID / Name</th>
+                    <th>Make &amp; Model</th>
+                    <th>Condition</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (item of products; track item.id) {
+                    <tr>
+                      <td>
+                        <img [src]="item.image" 
+                             (error)="handleImageError($event, item.category)" 
+                             [alt]="item.name" 
+                             class="seller-table-thumb">
+                      </td>
+                      <td>
+                        <strong>{{ item.name }}</strong>
+                        <div class="tbl-sku">{{ item.id }} · {{ item.category }}</div>
+                      </td>
+                      <td>{{ item.brand }} {{ item.model }}</td>
+                      <td>
+                        <span class="product-condition-badge static-badge" 
+                              [class.condition-like-new]="item.condition === 'Like New'"
+                              [class.condition-good]="item.condition === 'Good'"
+                              [class.condition-fair]="item.condition === 'Fair'"
+                              [class.condition-repair]="item.condition === 'For Repair'">
+                          {{ item.condition }}
+                        </span>
+                      </td>
+                      <td><strong>₹{{ item.price | number:'1.0-0' }}</strong></td>
+                      <td>
+                        <span [style.color]="item.stock <= 0 ? 'red' : 'inherit'" style="font-weight: 700;">
+                          {{ item.stock }}
+                        </span>
+                      </td>
+                      <td>
+                        <div class="seller-action-btns">
+                          <button type="button" class="btn-action-sm btn-edit" (click)="editProductInAdmin(item)">Edit</button>
+                          <button type="button" class="btn-action-sm btn-delete" (click)="deleteProductFromAdmin(item)">Del</button>
+                        </div>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+
+            <div class="seller-footer-tools">
+              <span>Local storage active.</span>
+              <button type="button" class="btn-reset-demo" (click)="resetDemoData()">
+                Reset Demo Inventory
+              </button>
+            </div>
+          </div>
+        }
+
+        <!-- TAB 2: Add / Edit Product Form -->
+        @if (sellerTab === 'form') {
+          <div>
+            <form (ngSubmit)="saveProductFromAdmin()">
+              <div class="seller-form-grid">
+                <div class="form-field">
+                  <label for="form-sku">Product SKU / ID *</label>
+                  <input type="text" id="form-sku" name="formSku" [(ngModel)]="productForm.id" required placeholder="e.g. RMP-ENG-120">
+                </div>
+
+                <div class="form-field">
+                  <label for="form-category">Category *</label>
+                  <select id="form-category" name="formCat" [(ngModel)]="productForm.category" required>
+                    @for (cat of categories; track cat.name) {
+                      <option [value]="cat.name">{{ cat.name }}</option>
+                    }
+                  </select>
+                </div>
+
+                <div class="form-field seller-form-full">
+                  <label for="form-name">Product Name *</label>
+                  <input type="text" id="form-name" name="formName" [(ngModel)]="productForm.name" required placeholder="e.g. Vintage Mikuni 24mm Carburetor">
+                </div>
+
+                <div class="form-field">
+                  <label for="form-brand">Motorcycle Brand *</label>
+                  <select id="form-brand" name="formBrand" [(ngModel)]="productForm.brand" required>
+                    @for (brand of availableBrands; track brand) {
+                      <option [value]="brand">{{ brand }}</option>
+                    }
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="form-model">Compatible Model(s) *</label>
+                  <input type="text" id="form-model" name="formModel" [(ngModel)]="productForm.model" required placeholder="e.g. Bullet 350 / Classic">
+                </div>
+
+                <div class="form-field">
+                  <label for="form-year">Year Range</label>
+                  <input type="text" id="form-year" name="formYear" [(ngModel)]="productForm.yearRange" placeholder="e.g. 1995 - 2005">
+                </div>
+
+                <div class="form-field">
+                  <label for="form-condition">Condition *</label>
+                  <select id="form-condition" name="formCondition" [(ngModel)]="productForm.condition" required>
+                    @for (c of availableConditions; track c) {
+                      <option [value]="c">{{ c }}</option>
+                    }
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="form-price">Price in INR (₹) *</label>
+                  <input type="number" id="form-price" name="formPrice" [(ngModel)]="productForm.price" min="0" required>
+                </div>
+
+                <div class="form-field">
+                  <label for="form-stock">Stock Quantity *</label>
+                  <input type="number" id="form-stock" name="formStock" [(ngModel)]="productForm.stock" min="0" required>
+                </div>
+
+                <div class="form-field seller-form-full">
+                  <label for="form-image">Product Image URL</label>
+                  <input type="url" id="form-image" name="formImage" [(ngModel)]="productForm.image" placeholder="https://images.unsplash.com/... (Leave empty for fallback)">
+                </div>
+
+                <div class="form-field seller-form-full">
+                  <label for="form-seller">Seller Workshop / City</label>
+                  <input type="text" id="form-seller" name="formSeller" [(ngModel)]="productForm.seller" placeholder="e.g. Decades Garage, Pune">
+                </div>
+
+                <div class="form-field seller-form-full">
+                  <label for="form-desc">Detailed Condition &amp; Wear Profile</label>
+                  <textarea id="form-desc" name="formDesc" rows="3" [(ngModel)]="productForm.description" placeholder="Describe mechanical integrity, threads, whether ultrasonically cleaned..."></textarea>
+                </div>
+
+                <div class="seller-form-actions">
+                  <button type="button" class="btn-secondary" (click)="setSellerTab('list')">Cancel</button>
+                  <button type="submit" class="btn-primary">
+                    {{ isEditingProduct ? 'Update Part' : 'Publish Part' }}
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}
+
+<!-- ========================================================================
+     11. TOAST NOTIFICATIONS
+     ======================================================================== -->
+@if (activeToast) {
+  <div class="toast-container">
+    <div class="toast" [class.toast-error]="activeToast.type === 'error'">
+      <span class="toast-indicator"></span>
+      <span>{{ activeToast.message }}</span>
+    </div>
+  </div>
+}
